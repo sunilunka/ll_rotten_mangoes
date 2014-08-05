@@ -1,2 +1,12 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1>Movies</h1>
+
+<%= link_to "Submit a movie!", new_movie_path %>
+
+<% @movies.each do | movie | %>
+  <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+  <h2><%= link_to movie.title, movie_path(movie) %> </h2>
+  <h3><%= movie.director %></h3>
+  <h4><%= movie.runtime_in_minutes %> minutes long</h4>
+  <p><%= movie.description %></p>
+  <hr>
+<% end %>
