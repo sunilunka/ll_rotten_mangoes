@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   get 'users/create'
 
-  resources :movies
+  resources :movies do
+    resources :reviews, only: [:new, :create]
+  end
 
   resources :users, only: [:new, :create]
 
