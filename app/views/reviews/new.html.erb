@@ -5,9 +5,9 @@
 <%= form_for([@movie, @review]) do |f| %>
   <% if @review.errors.any? %>
     <div>
-      <%= pluralize(@reviews.errors.count, "error") %> prevented the review from being saved:
+      <%= pluralize(@review.errors.count, "error") %> prevented the review from being saved:
       <ul>
-        <% @reviews.errors.full_messages.each do | msg | %>
+        <% @review.errors.full_messages.each do | msg | %>
           <li><%= msg %> </li>
         <% end %>
       </ul>
