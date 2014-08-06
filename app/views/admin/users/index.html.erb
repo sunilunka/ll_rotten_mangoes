@@ -1,9 +1,8 @@
 <h1>Site Administration</h1>
 
-<p> Welcome </p>
+<p> Welcome <%= current_user.full_name %></p>
 
 <%= @users.each do | user | %>
-  <p><%= user.full_name %></p>
+  <p> <%= link_to user.full_name, admin_user_path(user) %></p>
+  <p>Has submitted <%= pluralize(user.reviews.size, "review") %> </p>
 <% end %>
-
-<%= render 'layouts/footer' %>

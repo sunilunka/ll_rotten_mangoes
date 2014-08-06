@@ -12,6 +12,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_access
+    if current_user  
+      if !current_user.is_admin
+        flash[:alert] = "You must be an administrator to see site admin."
+        redirect_to movies_path
+      end
+    end
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
