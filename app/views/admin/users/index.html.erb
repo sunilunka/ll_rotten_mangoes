@@ -1,0 +1,9 @@
+<h1>Site Administration</h1>
+
+<p> Welcome </p>
+
+<%= @users.each do | user | %>
+  <p><%= user.full_name %></p>
+<% end %>
+
+<%= render 'layouts/footer' %>

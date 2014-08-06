@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'movies#index'
+
+  namespace :admin do
+    resources :users
+  end
   
   # get 'movies/index' to: 'movies#index'
 
