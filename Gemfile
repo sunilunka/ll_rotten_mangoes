@@ -29,8 +29,15 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7', :require => 'bcrypt'
 
+gem 'pry'
+
 # Use unicorn as the app server
 # gem 'unicorn'
+
+#For the upload/linking of images
+gem 'mini_magick'
+gem 'carrierwave'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

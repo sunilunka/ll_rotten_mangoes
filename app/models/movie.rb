@@ -10,7 +10,9 @@ class Movie < ActiveRecord::Base
 
   validates :description, presence: true
 
-  validates :poster_image_url, presence: true
+  # validates :poster_image_url, presence: true
+
+  mount_uploader :local_image_url, MovieImageUploader
 
   validates :release_date, presence: true
 
@@ -24,7 +26,7 @@ class Movie < ActiveRecord::Base
 
   def release_date_is_in_the_future
     if release_date.present?
-      errors.add(:release_date, "should be in the future") if release_date < Date.today
+      errors.add(:release_date, "should not be in the future") if release_date > Date.today
     end   
   end
 

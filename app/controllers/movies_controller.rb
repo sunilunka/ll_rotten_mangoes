@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
       runtime_in_minutes: params[:movie][:runtime_in_minutes],
       description: params[:movie][:description],
       poster_image_url: params[:movie][:poster_image_url],
+      remote_image_url: params[:movie][:remote_image_url],
       release_date: params[:movie][:release_date]  
     )
 
@@ -52,7 +53,7 @@ class MoviesController < ApplicationController
   protected
 
   def movie_params
-    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :description, :poster_image_url, :release_date)
+    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :description, :poster_image_url, :remote_image_url, :release_date)
   end
 
 end
