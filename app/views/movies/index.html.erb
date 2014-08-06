@@ -1,4 +1,10 @@
-<h1>Movies</h1>
+<h1><%= link_to "Movies", movies_path %></h1>
+
+<%= form_tag(movies_path, :method => "get", id: "search_title" ) do %>
+  <%= label_tag(:search_title, "Search Title:") %>
+  <%= text_field_tag :search_title, params[:search_title] %>
+  <%= submit_tag("Search", :name => nil) %>
+<% end %>
 
 <%= link_to "Submit a movie!", new_movie_path %>
 
