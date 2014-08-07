@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
     @movies =  Movie.all
 
     
-    if params[:search_title] == "" && params[:search_director] == "" && params[:search_time] == nil
+    if params[:search_title] == "" && params[:search_director] == "" && params[:search_time] == "runtime_in_minutes > 0"
       @movies = Movie.all
     elsif params[:search_title] || params[:search_director] || params[:search_time]
       @movies = Movie.search(

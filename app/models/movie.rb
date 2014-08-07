@@ -22,22 +22,16 @@ class Movie < ActiveRecord::Base
     reviews.sum(:rating_out_of_ten)/reviews.size if reviews.size > 0
   end
 
-  # def self.find_interval(interval)
-  #   case interval
-  #   when 90
-  #     "0 < runtime_in_minutes AND runtime_in_minutes < 90"
-  #   when 120
-  #     "90 < runtime_in_minutes AND runtime_in_minutes < 120"
-    
-  #   when 121
-  #     "runtime_in_minutes > 120" 
-  #   else
-  #     "runtime_in_minutes > 0"
-  #   end
+  # def self.search(title=nil, director=nil, runtime=nil)   
+  #   where("title LIKE ? OR director LIKE ? OR (#{runtime})", "#{title}", "#{director}")
   # end
 
-  def self.search(title=nil, director=nil, runtime=nil)   
-    where("title like ? OR director like ? OR (#{runtime})", "#{title}", "#{director}")
+  def self.search(title=nil , director=nil, runtime=nil)   
+    scope :find_title, -> (title) { where("title LIKE ?", title) }
+    scope :find_director, -> (director) { where("director LIKE ?", director) }
+    scope :find_runtime, -> (runtime) { where("#{runtime}") } 
+
+    find_title(title).find_director(director).find_runtime(runtime) 
   end
 
 
