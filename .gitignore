@@ -14,3 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#Ignore the SASS cache directories
+
+/app/assets/stylesheets/.sass-cache
