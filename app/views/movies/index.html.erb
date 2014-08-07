@@ -1,8 +1,12 @@
 <h1><%= link_to "Movies", movies_path %></h1>
 
-<%= form_tag(movies_path, :method => "get", id: "search_title" ) do %>
+<%= form_tag(movies_path, :method => "get", id: "search_box" ) do %>
   <%= label_tag(:search_title, "Search Title:") %>
-  <%= text_field_tag :search_title, params[:search_title] %>
+  <%= text_field_tag :search_title, params[:search_title] %><br>
+  <%= label_tag(:search_director, "Director:") %>
+  <%= text_field_tag :search_director, params[:search_director] %><br>
+  <%= label_tag(:search_time, "Movie runtime")
+  <%= select_tag() %>
   <%= submit_tag("Search", :name => nil) %>
 <% end %>
 
