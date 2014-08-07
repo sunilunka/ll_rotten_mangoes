@@ -4,12 +4,13 @@ class MoviesController < ApplicationController
     @movies =  Movie.all
 
     
-    if params[:search_title] == "" && params[:search_director] == ""
+    if params[:search_title] == "" && params[:search_director] == "" && params[:search_time] == nil
       @movies = Movie.all
-    elsif params[:search_title] || params[:search_director]
+    elsif params[:search_title] || params[:search_director] || params[:search_time]
       @movies = Movie.search(
         params[:search_title],
-        params[:search_director]
+        params[:search_director],
+        params[:search_time]
         ).order("created_at DESC")
    
     end

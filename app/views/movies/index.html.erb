@@ -5,8 +5,8 @@
   <%= text_field_tag :search_title, params[:search_title] %><br>
   <%= label_tag(:search_director, "Director:") %>
   <%= text_field_tag :search_director, params[:search_director] %><br>
-  <%= label_tag(:search_time, "Movie runtime")
-  <%= select_tag() %>
+  <%= label_tag(:search_time, "Movie runtime") %>
+  <%= select_tag(:search_time, options_for_select([["None", "runtime_in_minutes > 0"],["< 90mins", "0 < runtime_in_minutes AND runtime_in_minutes < 90"], ["90 to 120mins", "90 < runtime_in_minutes AND runtime_in_minutes < 120"], ["> 120mins", "runtime_in_minutes >= 120" ]])) %>
   <%= submit_tag("Search", :name => nil) %>
 <% end %>
 
