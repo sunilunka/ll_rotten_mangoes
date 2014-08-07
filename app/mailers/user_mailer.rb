@@ -1,5 +1,8 @@
 class UserMailer < ActionMailer::Base
+
   default from: "admin@rottenmangoes.com"
+
+
 
   def email_removed_user(user)
     @user = user

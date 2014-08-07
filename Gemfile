@@ -35,8 +35,8 @@ gem 'pry'
 # gem 'unicorn'
 
 #For the upload/linking of images
-gem 'mini_magick'
 gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Use Capistrano for deployment
