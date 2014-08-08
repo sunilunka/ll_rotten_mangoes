@@ -1,5 +1,5 @@
-<h1>Sign up</h1>
-  <%= form_for @user do |f| %>
+<h1> Admin edit a user </h1>
+  <%= form_for @user, url: admin_user_path(@user), html: {method: :put } do |f| %>
     <% if @user.errors.any? %>
       <div>
         <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
@@ -35,4 +35,3 @@
       <%= f.submit "Submit" %>
     </div>
   <% end %>
-

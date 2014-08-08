@@ -1,8 +1,8 @@
 <h1>Site Administration</h1>
 
 <p> Welcome <%= current_user.full_name %></p>
-
-<%= @users.each do | user | %>
+<%= link_to "Add new user", new_admin_user_path %> 
+<% @users.each do | user | %>
   <p> <%= link_to user.full_name, admin_user_path(user) %></p>
   <p>Has submitted <%= pluralize(user.reviews.size, "review") %> </p>
   <span><%= user.firstname %></span><span><%= user.lastname %></span><span><%= user.email %></span><span><%= user.is_admin %></span>
