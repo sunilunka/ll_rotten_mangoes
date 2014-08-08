@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def admin_access
     if current_user  
-      if !current_user.is_admin
+      if current_user.is_admin != 1
         flash[:alert] = "You must be an administrator to see site admin."
         redirect_to movies_path
       end

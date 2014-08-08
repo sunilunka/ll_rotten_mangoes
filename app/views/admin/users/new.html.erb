@@ -24,6 +24,10 @@
       <%= f.text_field "lastname" %>
     </div>
     <div>
+      <%= f.label "is_admin", "Administrator" %>
+      <%= f.check_box "is_admin" %>
+    </div>
+    <div>
       <%= f.label "password" %><br>
       <%= f.password_field "password" %>
     </div>
