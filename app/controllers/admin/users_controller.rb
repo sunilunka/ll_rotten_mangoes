@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(user_params)
   
     if @user.save
-       redirect_to admin_user_path, notice: "New user with email created."
+       redirect_to admin_users_path, notice: "New user #{@user.firstname} with email #{@user.email} created."
     else
       render :new
     end
