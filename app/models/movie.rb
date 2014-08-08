@@ -12,7 +12,9 @@ class Movie < ActiveRecord::Base
 
   # validates :poster_image_url, presence: true
 
-  mount_uploader :local_image_url, MovieImageUploader
+  mount_uploader :poster_image_url, MovieImageUploader
+
+  # mount_upholder :remote_image_url, MovieImageUploader
 
   validates :release_date, presence: true
 
