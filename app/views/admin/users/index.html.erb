@@ -5,5 +5,8 @@
 <% @users.each do | user | %>
   <p> <%= link_to user.full_name, admin_user_path(user) %></p>
   <p>Has submitted <%= pluralize(user.reviews.size, "review") %> </p>
-  <span><%= user.firstname %></span><span><%= user.lastname %></span><span><%= user.email %></span><span><%= user.is_admin %></span>
+  <span><%= user.firstname %></span><span><%= user.lastname %></span><span><%= user.email %></span>
+    <% if user.is_admin %>
+      <span>Administrator</span>
+    <% end %>
 <% end %>

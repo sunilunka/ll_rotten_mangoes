@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
 
 
-
-  get 'users/new'
-
-  get 'users/create'
-
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+     resource :imitations, only: [:new]
+  end
+
+  delete '/imitations', to: 'imitations#destroy', as: 'imitations'
 
   resource :session, only: [:new, :create, :destroy]
 
@@ -19,6 +18,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+
+ 
   
   # get 'movies/index' to: 'movies#index'
 

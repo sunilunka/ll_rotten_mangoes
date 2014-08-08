@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def admin_access
     if current_user  
-      if current_user.is_admin != 1
+      if current_user.is_admin != 1 
         flash[:alert] = "You must be an administrator to see site admin."
         redirect_to movies_path
       end
@@ -24,6 +24,12 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  def imitating?
+    session[:admin_id].present?
+  end
+  
+  helper_method :imitating?
 
   helper_method :current_user
 
